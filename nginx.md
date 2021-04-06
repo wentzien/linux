@@ -228,7 +228,13 @@ $ sudo chmod +x /usr/bin/nginx_enable_site /usr/bin/nginx_disable_site
 
 ## nginx site configuration
 
-reverse proxy:
+#### reverse proxy
+create a config file for each subdomain:
+```
+sudo nano /etc/nginx/sites-available/test.wntzn.de
+```
+
+copy and adjust this:
 ```
 server {
     listen 80;
@@ -242,4 +248,5 @@ server {
     }
 }
 ```
+
 
