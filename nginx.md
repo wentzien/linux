@@ -249,4 +249,69 @@ server {
 }
 ```
 
+### management commands
 
+stop web server
+```
+$ sudo systemctl stop nginx
+```
+
+start web server
+```
+$ sudo systemctl start nginx
+```
+
+restart web server
+```
+$ sudo systemctl restart nginx
+```
+
+reload configuration without dropping connections
+```
+$ sudo systemctl reload nginx
+```
+
+disable auto start when server boots
+```
+$ sudo systemctl disable nginx
+```
+
+enable service to start at boot
+```
+$ sudo systemctl enable nginx
+```
+
+## nginx directories
+
+### content
+```
+# webcontent
+/var/www/html
+```
+
+### server configuration
+```
+# configuration directory
+/etc/nginx
+
+# main nginx configuration file
+/etc/nginx/nginx.conf
+
+# stores per-site server blocks
+/etc/nginx/sites-available/
+
+# stores enabled per-site server blocks
+/etc/nginx/sites-enabled/
+
+# configuration fragments (repeatable configuration segments)
+/etc/nginx/snippets
+```
+
+### server logs
+```
+# log of every request to the webserver
+/var/log/nginx/access.log
+
+# any nginx errors
+/var/log/nginx/error.log
+```
