@@ -8,9 +8,8 @@ $ sudo nano /usr/bin/nginx_modsite
 ```
 
 <details>
-    <summary>copy this to the file:</summary>
-    
-    ```
+
+```bash
 #!/bin/bash
 
 ##
@@ -92,7 +91,7 @@ ngx_disable_site() {
 ngx_list_site() {
     echo "Available sites:"
     ngx_sites "available"
-    echo "Enabled Sites"
+    echo "Enabled sites:"
     ngx_sites "enabled"
 }
 
