@@ -180,7 +180,7 @@ make it executable:
 $ sudo chmod +x /usr/bin/nginx_modsite
 ```
 
-script commands:
+#### nginx_modsite commands:
 + list all sites:
 ```
 $ sudo nginx_modsite -l
@@ -192,5 +192,22 @@ $ sudo nginx_modsite -e test_website
 +disable site "test_website"
 ```
 $ sudo nginx_modsite -d test_website
+```
+
+## nginx site configuration
+
+reverse proxy:
+```
+server {
+    listen 80;
+
+    server_name test.wntzn.de www.test.wntzn.de;
+
+    location / {
+        proxy_set_header   X-Forwarded-For $remote_addr;
+        proxy_set_header Host $host;
+        proxy_pass http://127.0.0.1:9001;
+    }
+}
 ```
 
