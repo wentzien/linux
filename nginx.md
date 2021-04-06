@@ -7,6 +7,7 @@ create script and make it executable
 $ sudo nano /usr/bin/nginx_modsite
 ```
 
+option 1:
 <details>
 
 ```bash
@@ -193,6 +194,37 @@ $ sudo nginx_modsite -e test_website
 ```
 $ sudo nginx_modsite -d test_website
 ```
+
+option 2:
+<details>
+
+```
+$ sudo nano /usr/bin/nginx_enable_site
+```
+and copy this:
+```bash
+#!/bin/sh
+read -p "Website to enable: " site;
+ln -s /etc/nginx/sites-available/"$site" /etc/nginx/sites-enabled/
+echo "$site enabled. Now run 'service nginx reload'"
+```
+
+```
+$ sudo nano /usr/bin/nginx_disable_site
+```
+and copy this:
+```bash
+#!/bin/sh
+read -p "Website to disable: " site;
+rm /etc/nginx/sites-enabled/"$site"
+echo "$site disabled. Now run 'service nginx reload'"
+```
+
+make the scripts executable:
+```
+$ sudo chmod +x /usr/bin/nginx_enable_site /usr/bin/nginx_disable_site
+```
+</details>
 
 ## nginx site configuration
 
