@@ -239,7 +239,7 @@ copy and adjust this:
 server {
     listen 80;
 
-    server_name test.wntzn.de www.test.wntzn.de;
+    server_name test.wntzn.com www.test.wntzn.com;
 
     location / {
         proxy_set_header   X-Forwarded-For $remote_addr;
