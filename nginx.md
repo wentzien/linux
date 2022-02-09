@@ -239,13 +239,18 @@ copy and adjust this:
 server {
     listen 80;
 
-    server_name test.wntzn.com www.test.wntzn.com;
+    server_name www.wntzn.com;
 
     location / {
         proxy_set_header   X-Forwarded-For $remote_addr;
         proxy_set_header Host $host;
         proxy_pass http://127.0.0.1:9001;
     }
+}
+
+server {
+    server_name wntzn.com;
+    return 301 $scheme://www.wntzn.com$request_uri;
 }
 ```
 
