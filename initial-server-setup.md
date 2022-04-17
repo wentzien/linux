@@ -1,14 +1,14 @@
 # Initial Server Setup
 
 ```
-$ ssh root@your_server_ip
+$ ssh root@<your_server_ip>
 ```
 
 ## Create new admin user
 Add user and granting administrative privileges:
 ```
-$ adduser wntzn
-$ usermod -aG sudo wntzn
+$ adduser <username>
+$ usermod -aG sudo <username>
 ```
 
 ## Basic firewall
@@ -33,3 +33,29 @@ $ sudo ufw status
 $ sudo ufw enable
 ```
 
+## Disable root ssh login
+
+open and edit sshd config
+```
+vim /etc/ssh/sshd_config
+```
+
+modify following line
+```
+PermitRootLogin yes
+```
+
+disable root login
+```
+PermitRootLogin no
+```
+
+add whitelist for created user
+```
+AllowUsers <username>
+```
+
+restart ssh service
+```
+service ssh restart
+```
