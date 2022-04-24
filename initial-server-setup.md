@@ -1,43 +1,60 @@
 # Initial Server Setup
 
 ```
-$ ssh root@<your_server_ip>
+ssh root@<your_server_ip>
+```
+
+## Change hostname
+
+```
+sudo hostnamectl set-hostname <hostname>
+```
+
+## Change password
+
+```
+passwd
 ```
 
 ## Create new admin user
+
 Add user and granting administrative privileges:
+
 ```
-$ adduser <username>
-$ usermod -aG sudo <username>
+adduser <username>
+usermod -aG sudo <username>
 ```
 
 ## Basic firewall
+
 ufw is inclueded in the basic installation, but could be installed with:
+
 ```
-$ sudo apt-get install ufw gufw
+sudo apt-get install ufw gufw
 ```
 
 overview about current application filters:
 ```
-$ ufw app list
+sudo ufw app list
 ```
 
 allow SSH connections
 ```
-$ sudo ufw allow OpenSSH
+sudo ufw allow OpenSSH
+sudo ufw allow 22/tcp
 ```
 
 check status and if necessary activate:
 ```
-$ sudo ufw status
-$ sudo ufw enable
+sudo ufw status
+sudo ufw enable
 ```
 
 ## Disable root ssh login
 
-open and edit sshd config
+open and edit ssh config
 ```
-vim /etc/ssh/sshd_config
+sudo vim /etc/ssh/sshd_config
 ```
 
 modify following line
@@ -57,5 +74,11 @@ AllowUsers <username>
 
 restart ssh service
 ```
-service ssh restart
+sudo service ssh restart
+```
+
+## Secure Login
+
+```
+sudo apt install fail2ban
 ```
