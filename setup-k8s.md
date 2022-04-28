@@ -13,5 +13,5 @@ sudo ufw allow 10250/tcp
 just on master:
 
 ```
-sudo ufw allow 6443
+sudo ufw allow 6443/tcp
 ```
